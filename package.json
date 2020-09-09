@@ -12,17 +12,12 @@
   ],
   "private": false,
   "license": "MIT",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
   "scripts": {
     "prebuild": "rimraf dist",
     "clear": "rm -rf dist",
     "preversion": "npm run format && yarn run lint && npm build",
     "build:pre": "npm run clear",
-    "build": "npm run build:pre && tsc -p . && mkdir dist/views && cp views/* dist/views/ && mkdir dist/assets && cp -R assets dist",
+    "build": "npm run build:pre && tsc -p tsconfig.json && mkdir dist/views && cp views/* dist/views/ && mkdir dist/assets && cp -R assets dist",
     "commit": "git-cz",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start:dev": "nodemon --watch '{src,test/app}/**/*.ts' --ignore '**/*.spec.ts' --exec 'ts-node' test/app/main.ts",
@@ -66,7 +61,6 @@
       "json",
       "ts"
     ],
-    "rootDir": "src",
     "testRegex": ".spec.ts$",
     "transform": {
       "^.+\\.(t|j)s$": "ts-jest"
@@ -82,11 +76,6 @@
     "*.{md,html,json,js}": [
       "prettier --write"
     ]
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
   },
   "repository": {
     "type": "git",
