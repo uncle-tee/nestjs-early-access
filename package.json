@@ -2,7 +2,7 @@
   "name": "@dlabs/nestjs-early-starter",
   "version": "0.2.3",
   "description": "This Nest Js package makes it easy to add early access mode to your existing application. This is useful for when you want to launch a product and need to gather the email addresses of people who want early access to the application.",
-  "author": "Oluwatobi Adenekan <tobi@dlabs.cloud, oluwatobi.t.adenekan@gmail.com",
+  "author": "Oluwatobi Adenekan",
   "contributors": [],
   "keywords": [
     "early-access",
