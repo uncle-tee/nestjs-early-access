@@ -35,3 +35,4 @@ lerna-debug.log*
 /.env
 
 /coverage/
+/node_modules/
