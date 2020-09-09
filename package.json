@@ -1,0 +1,99 @@
+{
+  "name": "@dlabs/nestjs-early-starter",
+  "version": "0.2.3",
+  "description": "This Nest Js package makes it easy to add early access mode to your existing application. This is useful for when you want to launch a product and need to gather the email addresses of people who want early access to the application.",
+  "author": "Oluwatobi Adenekan <tobi@dlabs.cloud, oluwatobi.t.adenekan@gmail.com",
+  "contributors": [],
+  "keywords": [
+    "early-access",
+    "MVP",
+    "nest-js",
+    "dlabs"
+  ],
+  "private": false,
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "clear": "rm -rf dist",
+    "preversion": "npm run format && yarn run lint && npm build",
+    "build:pre": " npm run clear",
+    "build": "npm run build:pre && tsc -p . && mkdir dist/views && cp views/* dist/views/ && mkdir dist/assets && cp views/* dist/assets/",
+    "commit": "git-cz",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "start:dev": "nodemon --watch '{src,test/app}/**/*.ts' --ignore '**/*.spec.ts' --exec 'ts-node' test/app/main.ts",
+    "lint": "eslint \"{src,test}/**/*.ts\" --fix",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "test:e2e": "jest --config ./test/jest-e2e.json --detectOpenHandles",
+    "test:e2e:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --config test/jest-e2e.json --runInBand",
+    "test:e2e:dev": "yarn test:e2e --watchAll",
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md"
+  },
+  "dependencies": {
+    "class-validator": "^0.12.2",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "md5": "^2.2.1"
+  },
+  "devDependencies": {
+    "@nestjs/common": "^6.11.8",
+    "@nestjs/core": "^6.11.8",
+    "@types/express": "^4.17.8",
+    "@types/jest": "^25.1.4",
+    "@types/node": "^13.13.17",
+    "jest": "^25.1.0",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^6.5.4",
+    "ts-jest": "^25.2.1",
+    "typescript": "^3.8.2"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^7.0.0",
+    "@nestjs/core": "^7.0.0",
+    "reflect-metadata": "^0.1.13"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".spec.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "prettier --write",
+      "eslint --ext ts"
+    ],
+    "*.{md,html,json,js}": [
+      "prettier --write"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jmcdo29/nestjs-throttler.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jmcdo29/nestjs-throttler/issues"
+  },
+  "homepage": "https://github.com/jmcdo29/nestjs-throttler#readme"
+}
