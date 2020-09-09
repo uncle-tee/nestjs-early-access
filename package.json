@@ -90,10 +90,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jmcdo29/nestjs-throttler.git"
+    "url": "git+https://github.com/Dlabs-cloud/nestjs-early-starter.git"
   },
   "bugs": {
-    "url": "https://github.com/jmcdo29/nestjs-throttler/issues"
+    "url": "https://github.com/Dlabs-cloud/nestjs-early-starter.git/issues"
   },
-  "homepage": "https://github.com/jmcdo29/nestjs-throttler#readme"
+  "homepage": "https://github.com/Dlabs-cloud/nestjs-early-starter.git#readme"
 }
