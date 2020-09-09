@@ -18,6 +18,7 @@
     "preversion": "npm run format && yarn run lint && npm build",
     "build:pre": "npm run clear",
     "build": "npm run build:pre && tsc -p tsconfig.json && mkdir dist/views && cp views/* dist/views/ && mkdir dist/assets && cp -R assets dist",
+    "postinstall": "tsc --outDir ./dist  && mkdir dist/views && cp views/* dist/views/ && mkdir dist/assets && cp -R assets dist",
     "commit": "git-cz",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start:dev": "nodemon --watch '{src,test/app}/**/*.ts' --ignore '**/*.spec.ts' --exec 'ts-node' test/app/main.ts",
