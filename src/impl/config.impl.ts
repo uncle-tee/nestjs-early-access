@@ -1,5 +1,5 @@
 import {Inject, Injectable} from '@nestjs/common';
-import {EarlyAccessModuleOptions} from "..";
+import {EarlyAccessModuleOptions, EarlyAccessViewTemplate} from "..";
 import {EARLY_ACCESS_OPTIONS} from "../constants/token.constants";
 
 @Injectable()
@@ -8,15 +8,15 @@ export class ConfigImpl {
     constructor(@Inject(EARLY_ACCESS_OPTIONS) private readonly earlyAccessModuleOptions: EarlyAccessModuleOptions) {
     }
 
-    public getTwitterHandle() {
+    public getTwitterHandle(): string | undefined {
         return this.earlyAccessModuleOptions.twitterHandle;
     }
 
-    public twitterShareMessage() {
+    public twitterShareMessage(): string | undefined {
         return this.earlyAccessModuleOptions.twitterShareMessage;
     }
 
-    public viewTemplate() {
+    public viewTemplate(): EarlyAccessViewTemplate | undefined {
         return this.earlyAccessModuleOptions.template;
     }
 
