@@ -1,12 +1,13 @@
-import { IsEmail, IsNotEmpty, IsString } from 'class-validator';
+import {IsEmail, IsNotEmpty, IsOptional, IsString} from 'class-validator';
 
 export class SubscribeDto {
-  @IsNotEmpty()
-  @IsString()
-  @IsEmail()
-  email: string;
+    @IsNotEmpty()
+    @IsString()
+    @IsEmail()
+    email: string;
 
-  @IsString()
-  name?: string;
+    @IsOptional()
+    @IsString()
+    name?: string;
 }
 
