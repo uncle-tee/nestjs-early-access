@@ -38,15 +38,16 @@ export const EarlyAccessRepositoryProvider = {
 
 export const ControllerHackProvider = {
     provide: Symbol('CONTROLLER_HACK'),
-    useFactory: (options: EarlyAccessModuleOptions) => {
+    useFactory: (options: EarlyAccessModuleOptions, adapterHost: HttpAdapterHost) => {
         const controllerPrefix = options.url || 'early-access';
+        adapterHost.httpAdapter?.useStaticAssets(`${__dirname}/../assets`);
         Reflect.defineMetadata(
             PATH_METADATA,
             controllerPrefix,
             EarlyAccessController,
         );
     },
-    inject: [EARLY_ACCESS_OPTIONS],
+    inject: [EARLY_ACCESS_OPTIONS, HttpAdapterHost],
 
 };
 
