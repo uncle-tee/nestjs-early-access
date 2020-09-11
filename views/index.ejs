@@ -37,7 +37,7 @@
                     </h4>
                 </div>
                 <div class="mt-10">
-                    <form action="/go" method="post">
+                    <form action="#" method="post">
                         <div class="flex flex-col lg:flex-row font-light">
                             <input required
                                    type="email"
@@ -53,6 +53,10 @@
                             </button>
                         </div>
                     </form>
+                    <% if (isSubscribed) { %>
+                        <small class="mt-2 text-indigo-dark">Thank you for reaching out. We will keep in touch with you once we
+                            go live</small>
+                    <% } %>
                     <div class="mt-10">
                     <span class="text-xs text-grey font-light tracking-wide">
                         <sup>†</sup>No spam mail. We promise.
@@ -61,12 +65,8 @@
                 </div>
             </div>
             <div class="mt-16 md:mt-0 md:pl-5 lg:pl-10 md:w-3/5 text-center md:text-left">
-                <!-- <img src="svg/placeholder.svg" class="block"/> -->
-                <!-- <img src="svg/banner.svg" class="block mb-10"/> -->
-                <!-- <img src="img/banner-1.png" class="block mb-20"/> -->
-                <img  style="width: 80%" src="/img/undraw_all_the_data_h4ki.svg" class="block mb-20"/>
-                <!-- <img src="svg/bg-2.svg" class="block"/> -->
-                <img src="/img/undraw_functions_egi3.svg" class="block"/>
+                <img style="width: 80%" src="/img/undraw_all_the_data_h4ki.svg" class="hidden md:block lg:block mb-20"/>
+                <img src="/img/undraw_functions_egi3.svg" class="hidden md:hidden lg:block right-0 bottom-0"/>
             </div>
         </div>
     </main>

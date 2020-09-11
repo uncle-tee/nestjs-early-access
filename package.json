@@ -33,6 +33,7 @@
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md"
   },
   "dependencies": {
+    "@nestjs/serve-static": "^2.1.3",
     "class-validator": "^0.12.2",
     "dotenv": "^8.2.0",
     "ejs": "^3.0.1",
