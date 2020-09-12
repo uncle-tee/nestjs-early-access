@@ -1,9 +1,8 @@
 {
   "name": "@dlabs/nestjs-early-starter",
-  "version": "0.2.3",
+  "version": "1.0.0",
   "description": "This Nest Js package makes it easy to add early access mode to your existing application. This is useful for when you want to launch a product and need to gather the email addresses of people who want early access to the application.",
   "author": "Oluwatobi Adenekan",
-  "contributors": [],
   "keywords": [
     "early-access",
     "MVP",
@@ -13,27 +12,17 @@
   "private": false,
   "license": "MIT",
   "scripts": {
-    "prebuild": "rimraf dist",
     "clear": "rm -rf dist",
+    "build": "npm run build:pre && tsc -p tsconfig.json && mkdir dist/views && cp views/* dist/views/ && mkdir dist/assets && cp -R assets dist",
+    "prebuild": "rimraf dist",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "eslint \"{src,test}/**/*.ts\" --fix",
     "preversion": "npm run format && yarn run lint && npm build",
     "build:pre": "npm run clear",
-    "build": "npm run build:pre && tsc -p tsconfig.json && mkdir dist/views && cp views/* dist/views/ && mkdir dist/assets && cp -R assets dist",
     "postinstall": "tsc --outDir ./dist  && mkdir dist/views && cp views/* dist/views/ && mkdir dist/assets && cp -R assets dist",
-    "commit": "git-cz",
-    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "start:dev": "nodemon --watch '{src,test/app}/**/*.ts' --ignore '**/*.spec.ts' --exec 'ts-node' test/app/main.ts",
-    "lint": "eslint \"{src,test}/**/*.ts\" --fix",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:cov": "jest --coverage",
-    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json --detectOpenHandles",
-    "test:e2e:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --config test/jest-e2e.json --runInBand",
-    "test:e2e:dev": "yarn test:e2e --watchAll",
-    "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md"
+    "commit": "git-cz"
   },
   "dependencies": {
-    "@nestjs/serve-static": "^2.1.3",
     "class-validator": "^0.12.2",
     "dotenv": "^8.2.0",
     "ejs": "^3.0.1",
@@ -72,12 +61,14 @@
   },
   "lint-staged": {
     "*.ts": [
-      "prettier --write",
-      "eslint --ext ts"
-    ],
-    "*.{md,html,json,js}": [
       "prettier --write"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -c .commitlintrc.json -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
   },
   "repository": {
     "type": "git",
