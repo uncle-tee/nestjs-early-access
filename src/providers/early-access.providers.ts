@@ -1,11 +1,12 @@
-import {Provider} from '@nestjs/common';
-import {EarlyAccessModuleOptions, EarlyAccessRepository, EarlyAccessService} from '..';
-import {EarlyAccessServiceImpl} from '../impl/early-access-service.impl';
-import {EarlyAccessRepositoryImpl} from '../impl/early-access-repository.impl';
-import {HttpAdapterHost} from '@nestjs/core';
-import {EARLY_ACCESS_OPTIONS} from '../constants/token.constants';
-import {ViewLoader} from '../abstracts/view.loader';
-import {ExpressLoaders} from '../loaders/express.loaders';
+import { Provider } from '@nestjs/common';
+import { EarlyAccessServiceImpl } from '../impl/early-access-service.impl';
+import { EarlyAccessRepositoryImpl } from '../impl/early-access-repository.impl';
+import { HttpAdapterHost } from '@nestjs/core';
+import { EarlyAccessModuleOptions, EarlyAccessRepository } from '..';
+import { EARLY_ACCESS_OPTIONS } from '../constants/token.constants';
+import { ViewLoader } from '../abstracts/view.loader';
+import { ExpressLoaders } from '../loaders/express.loaders';
+import { EarlyAccessService } from '../contracts/early-access-service.interface';
 
 
 export function createEarlyAccessProviders(options: EarlyAccessModuleOptions): Provider[] {

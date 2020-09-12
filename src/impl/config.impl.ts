@@ -1,11 +1,11 @@
-import {Inject, Injectable} from '@nestjs/common';
-import {EarlyAccessModuleOptions} from '..';
+import { Inject, Injectable } from '@nestjs/common';
+import { EarlyAccessModuleOptions } from '..';
 import {
+  EARLY_ACCESS_ASSETS_DIR,
   EARLY_ACCESS_INDEX,
   EARLY_ACCESS_OPTIONS,
   EARLY_ACCESS_URL,
-  EARLY_ASSETS_DIR,
-  VIEWS_DIR,
+  EARLY_ACCESS_VIEWS_DIR,
 } from '../constants/token.constants';
 
 @Injectable()
@@ -22,23 +22,21 @@ export class ConfigImpl {
     return this.earlyAccessModuleOptions.twitterShareMessage;
   }
 
+
   public get baseUrl() {
     return this.earlyAccessModuleOptions.url || EARLY_ACCESS_URL;
   }
 
-
   public get assetsDir() {
-    return this.earlyAccessModuleOptions.template?.assetsDir || EARLY_ASSETS_DIR;
+    return this.earlyAccessModuleOptions.template?.assetsDir || EARLY_ACCESS_ASSETS_DIR;
   }
 
   public get viewsDir() {
-    return this.earlyAccessModuleOptions.template?.viewDir || VIEWS_DIR;
+    return this.earlyAccessModuleOptions.template?.viewDir || EARLY_ACCESS_VIEWS_DIR;
   }
 
-
-  public get index() {
+  public  get index() {
     return this.earlyAccessModuleOptions.template?.index || EARLY_ACCESS_INDEX;
   }
-
 
 }

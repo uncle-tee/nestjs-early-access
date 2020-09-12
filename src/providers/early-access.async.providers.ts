@@ -1,6 +1,6 @@
-import {IllegalArgumentException} from '../exception/illegal-argument.exception';
-import {EarlyAccessAsyncOptions, EarlyAccessOptionsFactory} from "..";
-import {EARLY_ACCESS_OPTIONS} from "../constants/token.constants";
+import { IllegalArgumentException } from '../exception/illegal-argument.exception';
+import { EarlyAccessAsyncOptions, EarlyAccessOptionsFactory } from '..';
+import { EARLY_ACCESS_OPTIONS } from '../constants/token.constants';
 
 export function createEarlyAccessAsyncProviders(options: EarlyAccessAsyncOptions) {
     if (options.useExisting || options.useFactory) {

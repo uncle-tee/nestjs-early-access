@@ -1,6 +1,6 @@
-import {EarlyAccessRepository} from './early-access-repository.interface';
-import {ModuleMetadata, Type} from '@nestjs/common/interfaces';
-import {EarlyAccessViewTemplate} from './early-access-view-template.interface';
+import { EarlyAccessRepository } from './early-access-repository.interface';
+import { ModuleMetadata, Type } from '@nestjs/common/interfaces';
+import { EarlyAccessViewTemplate } from './early-access-view-template.interface';
 
 export interface EarlyAccessModuleOptions {
   /**
@@ -40,6 +40,7 @@ export interface EarlyAccessModuleOptions {
    * This is the repository that will be called during save or update
    */
   repository?: EarlyAccessRepository;
+
 
 }
 

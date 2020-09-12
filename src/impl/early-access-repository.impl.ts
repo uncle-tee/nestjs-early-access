@@ -1,5 +1,5 @@
-import {Injectable} from '@nestjs/common';
-import {EarlyAccessRepository} from "..";
+import { Injectable } from '@nestjs/common';
+import { EarlyAccessRepository } from '..';
 
 @Injectable()
 export class EarlyAccessRepositoryImpl implements EarlyAccessRepository {

@@ -1,18 +1,18 @@
-import {DynamicModule, Global, Module, OnModuleInit} from '@nestjs/common';
+import { DynamicModule, Global, Module, OnModuleInit } from '@nestjs/common';
 
-import {EarlyAccessController} from './controllers/early-access.controller';
-import {ConfigImpl} from './impl/config.impl';
-import {createEarlyAccessAsyncProviders} from './providers/early-access.async.providers';
-import {IllegalArgumentException} from './exception/illegal-argument.exception';
-import {EarlyAccessAsyncOptions, EarlyAccessModuleOptions} from './contracts/early-access-module-options.interface';
+import { EarlyAccessController } from './controllers/early-access.controller';
+import { ConfigImpl } from './impl/config.impl';
+import { createEarlyAccessAsyncProviders } from './providers/early-access.async.providers';
+import { IllegalArgumentException } from './exception/illegal-argument.exception';
+import { EarlyAccessAsyncOptions, EarlyAccessModuleOptions } from './contracts/early-access-module-options.interface';
 import {
   createEarlyAccessProviders,
   EarlyAccessRepositoryProvider,
   EarlyAccessServiceProvider,
   EarlyAccessViewLoaderProvider,
 } from './providers/early-access.providers';
-import {ViewLoader} from './abstracts/view.loader';
-import {HttpAdapterHost} from '@nestjs/core';
+import { ViewLoader } from './abstracts/view.loader';
+import { HttpAdapterHost } from '@nestjs/core';
 
 
 @Global()

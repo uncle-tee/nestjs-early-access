@@ -1,6 +1,6 @@
-import {EarlyAccessService} from '..';
-import {Inject, Injectable} from '@nestjs/common';
-import {EarlyAccessRepository} from "..";
+import { EarlyAccessService } from '../contracts/early-access-service.interface';
+import { Inject, Injectable } from '@nestjs/common';
+import { EarlyAccessRepository } from '..';
 
 @Injectable()
 export class EarlyAccessServiceImpl implements EarlyAccessService {
