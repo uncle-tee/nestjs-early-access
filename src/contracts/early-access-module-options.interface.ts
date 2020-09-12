@@ -1,6 +1,6 @@
-import { EarlyAccessRepository } from './early-access-repository.interface';
-import { ModuleMetadata, Type } from '@nestjs/common/interfaces';
-import { EarlyAccessViewTemplate } from './early-access-view-template.interface';
+import {EarlyAccessRepository} from './early-access-repository.interface';
+import {ModuleMetadata, Type} from '@nestjs/common/interfaces';
+import {EarlyAccessViewTemplate} from './early-access-view-template.interface';
 
 export interface EarlyAccessModuleOptions {
   /**
@@ -10,7 +10,7 @@ export interface EarlyAccessModuleOptions {
 
 
   /**
-   * This is the url to use to access the early access page
+   * This is the url to use to access the early access page this defaults to "/early-access"
    */
   url?: string;
 
@@ -23,7 +23,6 @@ export interface EarlyAccessModuleOptions {
    * Twitter handle without the @. This will be added to the share message included with the subscription message.
    */
   twitterHandle?: string;
-
 
   /**
    * This is the template you want render your view
@@ -41,7 +40,6 @@ export interface EarlyAccessModuleOptions {
    * This is the repository that will be called during save or update
    */
   repository?: EarlyAccessRepository;
-
 
 }
 

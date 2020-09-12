@@ -1,54 +1,49 @@
 import {Provider} from '@nestjs/common';
-import {EarlyAccessService} from '../contracts/early-access-service.interface';
+import {EarlyAccessModuleOptions, EarlyAccessRepository, EarlyAccessService} from '..';
 import {EarlyAccessServiceImpl} from '../impl/early-access-service.impl';
 import {EarlyAccessRepositoryImpl} from '../impl/early-access-repository.impl';
-import {PATH_METADATA} from '@nestjs/common/constants';
-import {EarlyAccessController} from '../controllers/early-access.controller';
 import {HttpAdapterHost} from '@nestjs/core';
-import {EarlyAccessModuleOptions, EarlyAccessRepository} from '..';
 import {EARLY_ACCESS_OPTIONS} from '../constants/token.constants';
+import {ViewLoader} from '../abstracts/view.loader';
+import {ExpressLoaders} from '../loaders/express.loaders';
 
 
 export function createEarlyAccessProviders(options: EarlyAccessModuleOptions): Provider[] {
-    return [
-        {
-            provide: EARLY_ACCESS_OPTIONS,
-            useValue: options,
-        },
-    ];
+  return [
+    {
+      provide: EARLY_ACCESS_OPTIONS,
+      useValue: options,
+    },
+  ];
 }
 
 
 export const EarlyAccessServiceProvider = {
-    provide: EarlyAccessService,
-    useFactory: (repository: EarlyAccessRepository) => {
-        return new EarlyAccessServiceImpl(repository);
-    },
-    inject: [EarlyAccessRepository],
+  provide: EarlyAccessService,
+  useFactory: (repository: EarlyAccessRepository) => {
+    return new EarlyAccessServiceImpl(repository);
+  },
+  inject: [EarlyAccessRepository],
 
 };
 
 export const EarlyAccessRepositoryProvider = {
-    provide: EarlyAccessRepository,
-    useFactory: (options: EarlyAccessModuleOptions) => {
-        return options.repository ? options.repository : new EarlyAccessRepositoryImpl();
-    },
-    inject: [EARLY_ACCESS_OPTIONS],
+  provide: EarlyAccessRepository,
+  useFactory: (options: EarlyAccessModuleOptions) => {
+    return options.repository ? options.repository : new EarlyAccessRepositoryImpl();
+  },
+  inject: [EARLY_ACCESS_OPTIONS],
 };
 
-export const ControllerHackProvider = {
-    provide: Symbol('CONTROLLER_HACK'),
-    useFactory: (options: EarlyAccessModuleOptions, adapterHost: HttpAdapterHost) => {
-        const controllerPrefix = options.url || 'early-access';
-        adapterHost.httpAdapter?.useStaticAssets(`${__dirname}/../assets`);
-        Reflect.defineMetadata(
-            PATH_METADATA,
-            controllerPrefix,
-            EarlyAccessController,
-        );
-    },
-    inject: [EARLY_ACCESS_OPTIONS, HttpAdapterHost],
 
+export const EarlyAccessViewLoaderProvider = {
+  provide: ViewLoader,
+  useFactory: (httpAdapterHost: HttpAdapterHost) => {
+    if (httpAdapterHost && httpAdapterHost.httpAdapter) {
+      return new ExpressLoaders();
+    }
+  },
+  inject: [HttpAdapterHost],
 };
 
 
