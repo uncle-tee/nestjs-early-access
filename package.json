@@ -74,10 +74,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/uncle-tee/nestjs-early-starter.git"
+    "url": "git+https://github.com/uncle-tee/nestjs-early-access.git"
   },
   "bugs": {
-    "url": "https://github.com/uncle-tee/nestjs-early-starter.git/issues"
+    "url": "https://github.com/uncle-tee/nestjs-early-access.git/issues"
   },
-  "homepage": "https://github.com/uncle-tee/nestjs-early-starter.git#readme"
+  "homepage": "https://github.com/uncle-tee/nestjs-early-access.git#readme"
 }
