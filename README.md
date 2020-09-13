@@ -44,7 +44,7 @@ Simple call the `forRoot` method on the synchronous mode.
       imports: [ServiceModule],  
       useFactory: (earlyAccessService: EarlyAccessService) => ({  
             repository: earlyAccessService,  
-		    enabled: true,  
+	    enabled: true,  
       }),  
     })  
       
@@ -58,7 +58,7 @@ You can decide to use custom assets if you wish, although early access provides 
     EarlyAccessModule.forRoot({  
         enabled: false,  
 		 template: {  
-            viewDir: `${process.cwd()}/views`,  
+                viewDir: `${process.cwd()}/views`,  
     		assetsDir: `${process.cwd()}/assets`,  
     		index: 'index',  
       }  
