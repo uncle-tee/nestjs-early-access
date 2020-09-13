@@ -1,7 +1,7 @@
 export interface EarlyAccessViewTemplate {
-  viewDir?: string,
+  viewDir: string,
 
-  assetsDir?: string,
+  assetsDir: string,
 
-  index?: string
+  index: string
 }
