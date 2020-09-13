@@ -1,5 +1,9 @@
 ## Nestjs Early Access.  
 
+<p align="center">
+    <img src="https://s3.eu-west-2.amazonaws.com/socialite.io-dev/50734150-a442fc80-119a-11e9-9dfa-57904bb001f7.png" alt="Laravel Early Access logo" />
+</p>
+
 This NestJs package makes it easy to add early access mode to your existing application. This is useful when you want to launch a product and need to gather the email addresses of people who want early access or want to stay on the waiting list of the application.
 
 # Table of Contents
@@ -44,7 +48,7 @@ Simple call the `forRoot` method on the synchronous mode.
       imports: [ServiceModule],  
       useFactory: (earlyAccessService: EarlyAccessService) => ({  
             repository: earlyAccessService,  
-	    enabled: true,  
+		    enabled: true,  
       }),  
     })  
       
@@ -58,7 +62,7 @@ You can decide to use custom assets if you wish, although early access provides 
     EarlyAccessModule.forRoot({  
         enabled: false,  
 		 template: {  
-                viewDir: `${process.cwd()}/views`,  
+            viewDir: `${process.cwd()}/views`,  
     		assetsDir: `${process.cwd()}/assets`,  
     		index: 'index',  
       }  
