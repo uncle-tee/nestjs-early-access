@@ -8,7 +8,7 @@ This NestJs package makes it easy to add early access mode to your existing appl
 
 # Table of Contents
 
-- [NestJS Throttler Package](#nestjs-early-starter)
+- [NestJS Early Access Package](#nestjs-early-starter)
 - [Table of Contents](#table-of-contents)
 - [Usage](#usage)
 	-	[Installation](#installation)
