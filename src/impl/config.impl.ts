@@ -1,6 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { EarlyAccessModuleOptions } from '..';
 import {
+  DEFAULT_TEMPLATE,
   EARLY_ACCESS_ASSETS_DIR,
   EARLY_ACCESS_INDEX,
   EARLY_ACCESS_OPTIONS,
@@ -35,8 +36,12 @@ export class ConfigImpl {
     return this.earlyAccessModuleOptions.template?.viewDir || EARLY_ACCESS_VIEWS_DIR;
   }
 
-  public  get index() {
+  public get index() {
     return this.earlyAccessModuleOptions.template?.index || EARLY_ACCESS_INDEX;
+  }
+
+  public get defaultTemplate() {
+    return this.earlyAccessModuleOptions.defaultTemplate || DEFAULT_TEMPLATE;
   }
 
 }
