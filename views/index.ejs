@@ -7,36 +7,62 @@
     <link href="https://fonts.googleapis.com/css?family=Rajdhani:600" rel="stylesheet" type="text/css">
     <link href="/css/early-access.css" rel="stylesheet">
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Pontano+Sans&display=swap" rel="stylesheet">
 
-    <title>Asobooks Early Access</title>
+    <title><%= template.productName %>- Early Access</title>
 </head>
-<body class="h-screen w-full overflow-hidden">
-<div id="app" class="flex flex-col w-full h-screen">
+<body class="h-full w-full">
+<div id="app" class="flex flex-col w-full h-full">
     <nav class="container w-full flex justify-between items-center">
         <div class="py-2">
             <a href="/home" class="block mt-1 no-underline">
                     <span class="text-5xl font-logo uppercase font-black tracking-tight block text-indigo-dark">
-                        <!-- Asobooks -->
-                        <img src="/svg/logo.svg" class="block mt-10 w-32"/>
+                        <% if (template.logo.type === 'img'){ %>
+                            <img src="<%= template.logo.source %>" class="block mt-10 w-32">
+                        <% }else { %>
+                            <span style="color: <%= template.logo.color || "#ea2845" %>"><%= template.logo.source %></span>
+                        <% } %>
+
                     </span>
             </a>
         </div>
 
+        <% if(template.loginUrl){ %>
+            <a class="block no-underline" href="" title="@lang('early-access::common.login')">
+                    <span class="text-sm text-indigo-dark hover:text-indigo-darkest uppercase font-medium">
+                      login
+                    </span>
+            </a>
+        <% } %>
     </nav>
-    <main class="mt-10 md:mt-12 flex-1 h-screen">
-        <div class="container flex flex-col md:flex-row items-top justify-between">
+    <main class="mt-20 md:mt-32 flex-1">
+        <div class="container flex flex-col md:flex-row items-center justify-between">
             <div class="md:pr-5 lg:pr-10 md:w-2/5">
-                <div class="text-center md:text-left mt-24">
-                    <h1 class="text-2xl lg:text-3xl text-indigo-darker font-logo font-extrabold uppercase leading-none"
-                        style="font-family: Gilroy-Bold;">
-                        Enabling real time community admin.
+                <div class="text-center md:text-left">
+                    <h1 class="text-3xl lg:text-3xl text-indigo-darker font-logo font-medium uppercase leading-normal"
+                        style="color: <%= template.welcomeMessage.color %>">
+                        <%= template.welcomeMessage.text %>
                     </h1>
-                    <h4 class="text-base font-light leading-normal grey-soft mt-2">
-                        Manage communities in real time.<br> AsoBooks got you covered.
+                    <h4 class="text-base font-light leading-normal grey-soft">
+                        <%= template.welcomeMessage.sub %>
                     </h4>
                 </div>
-                <div class="mt-10">
+                <div class="mt-5">
+
+                    <% if (isSubscribed === true){ %>
+                        <div class="mb-2 p-3 rounded-lg bg-green-lightest text-sm text-green-dark font-medium"
+                             id="success-msg">
+                            We will surely keep in touch
+                        </div>
+                    <% } %>
+
+                    <% if (isSubscribed === false){ %>
+                        <div class="mb-2 p-3 rounded-lg bg-red-lightest text-sm text-grey-darker font-medium"
+                             id="error-msg">
+                            Please confirm email
+                        </div>
+                    <% } %>
+
+
                     <form action="#" method="post">
                         <div class="flex flex-col lg:flex-row font-light">
                             <input required
@@ -48,15 +74,13 @@
                             <button type="submit"
                                     class="mt-2 lg:mt-0 p-4 lg:px-0 w-full lg:w-2/5 rounded-lg lg:rounded-l-none bg-indigo-dark shadow-lg
                                        lg:shadow-none text-sm text-white uppercase focus:outline-none"
+                                    style="background-color: <%= template.submitButton.color %>"
                             >
-                                Get early access<sup>†</sup>
+                                <%= template.submitButton.text %><sup>†</sup>
                             </button>
                         </div>
                     </form>
-                    <% if (isSubscribed) { %>
-                        <small class="mt-2 text-indigo-dark">Thank you for reaching out. We will keep in touch with you once we
-                            go live</small>
-                    <% } %>
+
                     <div class="mt-10">
                     <span class="text-xs text-grey font-light tracking-wide">
                         <sup>†</sup>No spam mail. We promise.
@@ -65,14 +89,13 @@
                 </div>
             </div>
             <div class="mt-16 md:mt-0 md:pl-5 lg:pl-10 md:w-3/5 text-center md:text-left">
-                <img style="width: 80%" src="/img/undraw_all_the_data_h4ki.svg" class="hidden md:block lg:block mb-20"/>
-                <img src="/img/undraw_functions_egi3.svg" class="hidden md:hidden lg:block right-0 bottom-0"/>
+                <img src="<%= template.placeHolderImage %>" clasxxs="block"/>
             </div>
         </div>
     </main>
     <footer class="mt-20 md:mt-32 container py-5">
             <span class="block text-sm text-center">
-                2020 Asobooks
+                2020 Acme. All rights reserved
             </span>
     </footer>
 </div>

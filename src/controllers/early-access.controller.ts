@@ -18,6 +18,7 @@ export class EarlyAccessController {
     let data = {
       showShareWithTwitter: !!this.configService.twitterHandle,
       isSubscribed: req.query.isSubscribed,
+      template: this.configService.defaultTemplate,
     };
 
     return res.render(this.configService.index, data);
@@ -28,10 +29,10 @@ export class EarlyAccessController {
     let subscribeDto: SubscribeDto = request.body;
 
     this.earlyAccessService.subscribe(subscribeDto.email, subscribeDto.name)
-      .then(isSubscribed => {
-        let url = `?isSubscribed=${isSubscribed}`;
-        res.redirect(url);
-      }).catch(error => {
+        .then(isSubscribed => {
+          let url = `?isSubscribed=${isSubscribed}`;
+          res.redirect(url);
+        }).catch(error => {
       let url = `?isSubscribed=${false}`;
       res.redirect(url);
     });
