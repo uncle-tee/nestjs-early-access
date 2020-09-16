@@ -36,7 +36,7 @@ Simple import the `EarlyAccessModule` into your application.
 Simple call the `forRoot` method on the synchronous mode.  
   ```bash 
  EarlyAccessModule.forRoot({        
-				 enabled: true    
+		enabled: true    
 		    })    
  export class AppModule {}  
 ``` 
@@ -67,26 +67,26 @@ Simple provide the options object with `defaultTemplate` of type.  Remember that
 		      enabled: true,  
 		      url: '/',  
 		      defaultTemplate: {  
-	               assetsDir: `${process.cwd()}/assets`,  
-				    productName: 'Aso Books',  
+	              		assetsDir: `${process.cwd()}/assets`,  
+				productName: 'Aso Books',  
 				    logo: {  
-		                 type: 'img',  
-					     source: `/logo.svg`,  
-						 },  
-			      submitButton: {  
-		                  color: '#5661b3',  
-					      text: 'Join waiting list',  
-				      },  
-			      placeHolderImage: `/undraw_all_the_data_h4ki.svg`,  
-			      welcomeMessage: {  
-		                  text: 'Welcome to early access',  
-					      color: '#5661b3',  
-					      sub: 'You can type any thing you like to write as a sub welcome message. Do not forget to start this though.',  
-				      },  
+		                 	type: 'img',  
+					source: `/logo.svg`,  
+					},  
+			      	submitButton: {  
+		                  	color: '#5661b3',  
+				  	text: 'Join waiting list',  
+				      	},  
+			      	placeHolderImage: `/undraw_all_the_data_h4ki.svg`,  
+			      	welcomeMessage: {  
+		                  	text: 'Welcome to early access',  
+					color: '#5661b3',  
+					sub: 'You can type any thing you like to write as a sub welcome message. Do not forget to start this though.',  
+				      	},  
 				},  
 			 };  
 		   },  
-	    }),  
+	    	}),  
 	   ],  
       controllers: [AppController],  
       providers: [AppService],  
