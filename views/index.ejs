@@ -38,7 +38,7 @@
         <div class="container flex flex-col md:flex-row items-center justify-between">
             <div class="md:pr-5 lg:pr-10 md:w-2/5">
                 <div class="text-center md:text-left">
-                    <h1 class="text-3xl lg:text-5xl text-indigo-darker font-logo font-medium uppercase leading-normal"
+                    <h1 class="text-3xl lg:text-3xl text-indigo-darker font-logo font-medium uppercase leading-normal"
                         style="color: <%= template.welcomeMessage.color %>">
                         <%= template.welcomeMessage.text %>
                     </h1>
@@ -48,16 +48,20 @@
                 </div>
                 <div class="mt-5">
 
-                    <div class="mb-2 p-3 rounded-lg bg-green-lightest text-sm text-green-dark font-medium"
-                         id="success-msg">
-                        We will surely keep in touch
-                    </div>
+                    <% if (isSubscribed){ %>
+                        <div class="mb-2 p-3 rounded-lg bg-green-lightest text-sm text-green-dark font-medium"
+                             id="success-msg">
+                            We will surely keep in touch
+                        </div>
+                    <% } %>
 
+                    <% if (isSubscribed === "failed"){ %>
+                        <div class="mb-2 p-3 rounded-lg bg-red-lightest text-sm text-grey-darker font-medium"
+                             id="error-msg">
+                            Please confirm email
+                        </div>
+                    <% } %>
 
-                    <div class="mb-2 p-3 rounded-lg bg-red-lightest text-sm text-grey-darker font-medium"
-                         id="error-msg">
-                        Please confirm email
-                    </div>
 
                     <form action="#" method="post">
                         <div class="flex flex-col lg:flex-row font-light">
