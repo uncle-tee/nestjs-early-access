@@ -48,14 +48,14 @@
                 </div>
                 <div class="mt-5">
 
-                    <% if (isSubscribed){ %>
+                    <% if (isSubscribed === true){ %>
                         <div class="mb-2 p-3 rounded-lg bg-green-lightest text-sm text-green-dark font-medium"
                              id="success-msg">
                             We will surely keep in touch
                         </div>
                     <% } %>
 
-                    <% if (isSubscribed === "failed"){ %>
+                    <% if (isSubscribed === false){ %>
                         <div class="mb-2 p-3 rounded-lg bg-red-lightest text-sm text-grey-darker font-medium"
                              id="error-msg">
                             Please confirm email

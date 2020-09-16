@@ -17,7 +17,7 @@ export class EarlyAccessController {
 
     let data = {
       showShareWithTwitter: !!this.configService.twitterHandle,
-      isSubscribed: req.query.isSubscribed || 'failed',
+      isSubscribed: req.query.isSubscribed,
       template: this.configService.defaultTemplate,
     };
 
