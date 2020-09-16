@@ -1,48 +1,49 @@
 export interface EarlyAccessDefaultTemplateInterface {
 
-  /**
-   * This is the name of the product you are trying to get early access too
-   */
-  productName: string;
-  /**
-   * This is the logo path it can be a url path or assets path
-   */
-  logo?: {
-    type: 'img' | 'text',
-    source: string;
-    color?: string;
-  };
-  /**
-   * This is the place holder image on the right corner
-   */
-  placeHolderImage?: string;
-
-  /**
-   * Welcome message on the page er Welcome Acme
-   */
-
-  welcomeMessage?: {
-    color: string;
-    text: string;
-    sub?: string;
-  }
-
-
-  button?: {
+    assetsDir?: string;
     /**
-     * This is the color of the submit button
+     * This is the name of the product you are trying to get early access too
      */
-    text: string;
+    productName: string;
     /**
-     * This is the text in the submit button
+     * This is the logo path it can be a url path or assets path
      */
-    color: string;
-  }
+    logo?: {
+        type: 'img' | 'text',
+        source: string;
+        color?: string;
+    };
+    /**
+     * This is the place holder image on the right corner
+     */
+    placeHolderImage?: string;
 
-  /**
-   * This is the login url
-   */
-  loginUrl?: string;
+    /**
+     * Welcome message on the page er Welcome Acme
+     */
+
+    welcomeMessage?: {
+        color: string;
+        text: string;
+        sub?: string;
+    }
+
+
+    submitButton?: {
+        /**
+         * This is the color of the submit button
+         */
+        text: string;
+        /**
+         * This is the text in the submit button
+         */
+        color: string;
+    }
+
+    /**
+     * This is the login url
+     */
+    loginUrl?: string;
 
 
 }

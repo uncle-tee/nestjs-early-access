@@ -20,7 +20,7 @@ export const DEFAULT_TEMPLATE: EarlyAccessDefaultTemplateInterface = {
     text: `Welcome to Nest Js`,
     sub: `'Welcome to ${this.propertyName}. You can customize this message in the env folder. You can start by reading the installation guide in the readme.'`,
   },
-  button: {
+  submitButton: {
     text: 'GET EARLY ACCESS',
     color: '#5661b3',
   },
